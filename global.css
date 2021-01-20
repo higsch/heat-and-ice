@@ -1,3 +1,7 @@
+:root {
+  --font: 'Quattrocento Sans';
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,11 +11,29 @@ html, body {
   position: relative;
   width: 100%;
   height: 100%;
+  font-size: 12px;
+}
+
+@media (min-width: 600px ) {
+	html, body {
+		font-size: 15px;
+	}
+}
+
+@media (min-width: 980px ) {
+	html, body {
+		font-size: 17px;
+	}
+}
+
+@media (min-width: 1260px ) {
+	html, body {
+		font-size: 18px;
+	}
 }
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: black;
 }
