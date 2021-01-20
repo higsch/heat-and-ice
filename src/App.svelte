@@ -1,25 +1,32 @@
 <script>
   import { csv, timeParse } from 'd3';
 
+  import { getDayOfYear } from './utils/date';
+
   import Visualization from './Visualization.svelte';
 
   const dataPath = 'data/date_temperature_snow.csv';
   const parseDate = timeParse('%Y-%m-%d');
-  const dayOfYear = (date) => Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+  const firstYear = 1990;
 
   let data = [];
 
   csv(dataPath, (d) => {
     const date = parseDate(d.Time);
+    const day = getDayOfYear(date);
+    const month = date.getMonth();
+    const year = date.getFullYear();
     return {
       date,
-      day: dayOfYear(date),
-      year: date.getYear(),
+      day,
+      month,
+      year,
+      yearDay: day + (366 * (year - firstYear)),
       temperature: d.Temperature === '#N/A' ? null : +d.Temperature,
       snow: d.Snow === '#N/A' ? null : +d.Snow
     };
   }).then((d) => {
-    data = d.filter((dd) => dd.date > parseDate('2000-01-16'));
+    data = d.filter((dd) => dd.date > parseDate(`${firstYear}-01-16`));
   });
 </script>
 
