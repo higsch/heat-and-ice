@@ -6,6 +6,7 @@
   import Svg from './components/Svg.svelte';
   import WobbleLine from './components/WobbleLine.svelte';
   import MonthLabels from './components/MonthLabels.svelte';
+  import Legend from './components/Legend.svelte';
   import Canvas from './components/Canvas.svelte';
   import Snowflake from './components/Snowflake.svelte';
   import YearLabels from './components/YearLabels.svelte';
@@ -77,6 +78,15 @@
         outerRadius={Math.min(minDim, spiralRadiusScale.range()[1] + minDim / 40)}
         angleScale={angleScale}
         color={temperatureColor}
+      />
+      <Legend
+        radius={minDim / 10}
+        temperatureScale={temperatureScale}
+        snowflakeRadiusScale={snowflakeRadiusScale}
+        temperatureColor={temperatureColor}
+        snowStrokeColor={temperatureColor}
+        snowStrokeWidth={minDim / 600}
+        snowStrokeOpacity={0.5}
       />
     </Svg>
     <Canvas

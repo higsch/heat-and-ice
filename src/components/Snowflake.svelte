@@ -14,7 +14,7 @@
   export let parentHeight = 0;
 
   const { register, deregister, invalidate } = getContext('canvas');
-  const fallingDuration = 1000;
+  const fallingDuration = 7000;
   const delay = Math.random() * fallingDuration;
 
   const x = tweened(parentWidth * (Math.random() - 0.5), {
