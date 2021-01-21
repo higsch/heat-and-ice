@@ -30,21 +30,18 @@
 
   $: temperatureScale = (temperature) => temperature > 10 ? minDim / data.length * 50 : 0;
 
-  $: snowflakeRadiusScale = scaleSqrt()
-    .domain([0, max(data, (d) => d.snow)])
-    .range([0, minDim / 50]);
+  $: snowflakeRadiusScale = (snow) => snow && snow > 0 ? minDim / data.length * 50 : 0;
 
   $: spiralData = data.map((d) => {
       return {
         ...d,
         angle: angleScale(d.day),
         innerRadius: spiralRadiusScale(d.yearDay) - minDim / 2000,
-        outerRadius: spiralRadiusScale(d.yearDay) + minDim / 2000,
-        snowflakeRadius: snowflakeRadiusScale(d.snow)
+        outerRadius: spiralRadiusScale(d.yearDay) + minDim / 2000
       };
     });
 
-  $: temperatureData = data.map((d) => {
+  $: renderedData = data.map((d) => {
       return {
         ...d,
         angle: angleScale(d.day),
@@ -74,7 +71,7 @@
         fillOpacity={0.3}
       />
       <WobbleLine
-        data={temperatureData}
+        data={renderedData}
         strokeColor="none"
         fillColor={temperatureColor}
       />
@@ -84,21 +81,22 @@
         color={temperatureColor}
       />
     </Svg>
-    <!-- <Canvas
+    <Canvas
       width={width}
       height={height}
     >
       {#each renderedData.filter((d) => d.snow && d.snowflakeRadius > 0) as datum (datum.yearDay)}
         <Snowflake
           datum={datum}
-          fillColor={temperatureColor}
-          opacity={0.4}
-          strokeWidth={minDim / 400}
+          fillColor={null}
+          strokeColor={temperatureColor}
+          strokeWidth={minDim / 600}
+          opacity={0.5}
           parentWidth={width}
           parentHeight={height}
         />
       {/each}
-    </Canvas> -->
+    </Canvas>
   </div>
 </div>
 

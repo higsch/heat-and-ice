@@ -7,8 +7,9 @@
 
   export let datum = {};
   export let fillColor = '#FFFFFF';
-  export let opacity = 0.3;
+  export let strokeColor = '#FFFFFF';
   export let strokeWidth = 1;
+  export let opacity = 0.3;
   export let parentWidth = 0;
   export let parentHeight = 0;
 
@@ -31,12 +32,13 @@
   function draw(ctx) {
     if (datum.snowflakeRadius) {
       ctx.globalAlpha = opacity;
-      ctx.fillStyle = fillColor;
-      ctx.strokeStyle = fillColor;
+      if (fillColor) ctx.fillStyle = fillColor;
+      if (strokeColor) ctx.strokeStyle = strokeColor;
       ctx.lineWidth = strokeWidth;
       ctx.beginPath();
       ctx.arc($x, $y, datum.snowflakeRadius, 0, 2 * Math.PI, false);
-      ctx.stroke();
+      if (strokeColor) ctx.stroke();
+      if (fillColor) ctx.fill()
     }
   }
 
