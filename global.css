@@ -14,22 +14,25 @@ html, body {
   font-size: 12px;
 }
 
-@media (min-width: 600px ) {
-	html, body {
-		font-size: 15px;
-	}
+@media (min-width: 600px) {
+  html,
+  body {
+    font-size: 15px;
+  }
 }
 
-@media (min-width: 980px ) {
-	html, body {
-		font-size: 17px;
-	}
+@media (min-width: 980px) {
+  html,
+  body {
+    font-size: 17px;
+  }
 }
 
-@media (min-width: 1260px ) {
-	html, body {
-		font-size: 18px;
-	}
+@media (min-width: 1260px) {
+  html,
+  body {
+    font-size: 18px;
+  }
 }
 
 body {
