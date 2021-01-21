@@ -1,10 +1,10 @@
 <script>
   import { scaleLinear, scaleSqrt, extent, max } from 'd3';
 
-  import { background as backgroundColor, temperature as temperatureColor } from './utils/colors';
+  import { background, background as backgroundColor, temperature as temperatureColor } from './utils/colors';
 
   import Svg from './components/Svg.svelte';
-  import TemperatureLine from './components/TemperatureLine.svelte';
+  import WobbleLine from './components/WobbleLine.svelte';
   import MonthLabels from './components/MonthLabels.svelte';
   import Canvas from './components/Canvas.svelte';
   import Snowflake from './components/Snowflake.svelte';
@@ -14,7 +14,9 @@
   let width = 0;
   let height = 0;
 
-  let renderedData = [];
+  let spiralData = [];
+  let temperatureData = [];
+  let snowData = [];
 
   $: minDim = Math.min(width, height);
 
@@ -42,7 +44,7 @@
       };
     });
 
-  $: renderedData = data.map((d) => {
+  $: temperatureData = data.map((d) => {
       return {
         ...d,
         angle: angleScale(d.day),
@@ -66,13 +68,14 @@
       width={width}
       height={height}
     >
-      <TemperatureLine
+      <WobbleLine
         data={spiralData}
         fillColor={temperatureColor}
         fillOpacity={0.3}
       />
-      <TemperatureLine
-        data={renderedData}
+      <WobbleLine
+        data={temperatureData}
+        strokeColor="none"
         fillColor={temperatureColor}
       />
       <MonthLabels
@@ -81,7 +84,7 @@
         color={temperatureColor}
       />
     </Svg>
-    <Canvas
+    <!-- <Canvas
       width={width}
       height={height}
     >
@@ -95,7 +98,7 @@
           parentHeight={height}
         />
       {/each}
-    </Canvas>
+    </Canvas> -->
   </div>
 </div>
 
