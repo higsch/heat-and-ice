@@ -1,13 +1,12 @@
 <script>
   import { csv, timeParse } from 'd3';
 
-  import { getDayOfYear } from './utils/date';
+  import { getDayOfYear, getYearDays, firstYear } from './utils/date';
 
   import Visualization from './Visualization.svelte';
 
   const dataPath = 'data/date_temperature_snow.csv';
   const parseDate = timeParse('%Y-%m-%d');
-  const firstYear = 1980;
 
   let data = [];
 
@@ -21,7 +20,7 @@
       day,
       month,
       year,
-      yearDay: day + (366 * (year - firstYear)),
+      yearDay: getYearDays(day, year),
       temperature: d.Temperature === '#N/A' ? null : +d.Temperature,
       snow: d.Snow === '#N/A' ? null : +d.Snow
     };

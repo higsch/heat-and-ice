@@ -1,13 +1,14 @@
 <script>
   import { scaleLinear, scaleSqrt, extent, max } from 'd3';
 
-  import { background, background as backgroundColor, temperature as temperatureColor } from './utils/colors';
+  import { background as backgroundColor, temperature as temperatureColor } from './utils/colors';
 
   import Svg from './components/Svg.svelte';
   import WobbleLine from './components/WobbleLine.svelte';
   import MonthLabels from './components/MonthLabels.svelte';
   import Canvas from './components/Canvas.svelte';
   import Snowflake from './components/Snowflake.svelte';
+  import YearLabels from './components/YearLabels.svelte';
 
   export let data = [];
 
@@ -93,6 +94,14 @@
         />
       {/each}
     </Canvas>
+    <YearLabels
+      data={data}
+      spiralRadiusScale={spiralRadiusScale}
+      color={temperatureColor}
+      backgroundColor={backgroundColor}
+      parentWidth={width}
+      parentHeight={height}
+    />
   </div>
 </div>
 

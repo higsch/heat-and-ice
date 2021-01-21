@@ -1,5 +1,9 @@
 const monthDays = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
+export const firstYear = 1980;
+
+export const getYearDays = (day, year) => day + (366 * (year - firstYear))
+
 export const getDayOfYear = (date) => {
   const month = +date.getMonth();
   const day = +date.getDate();
