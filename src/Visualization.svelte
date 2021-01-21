@@ -3,6 +3,7 @@
 
   import { background as backgroundColor, temperature as temperatureColor } from './utils/colors';
 
+  import Title from './components/Title.svelte';
   import Svg from './components/Svg.svelte';
   import WobbleLine from './components/WobbleLine.svelte';
   import MonthLabels from './components/MonthLabels.svelte';
@@ -10,6 +11,7 @@
   import Canvas from './components/Canvas.svelte';
   import Snowflake from './components/Snowflake.svelte';
   import YearLabels from './components/YearLabels.svelte';
+  import Credits from './components/Credits.svelte';
 
   export let data = [];
 
@@ -59,6 +61,9 @@
     bind:clientWidth={width}
     bind:clientHeight={height}
   >
+    <Title
+      color={temperatureColor}
+    />
     <Svg
       width={width}
       height={height}
@@ -112,6 +117,9 @@
       backgroundColor={backgroundColor}
       parentWidth={width}
       parentHeight={height}
+    />
+    <Credits
+      color={temperatureColor}
     />
   </div>
 </div>

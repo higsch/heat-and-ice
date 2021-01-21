@@ -34,7 +34,7 @@
 <g class="legend">
   <g
     class="temperature-legend"
-    transform="translate(0 {-radius / 2})"
+    transform="translate(0 {-radius / 3})"
   >
     <path
       d={area(temperatureData)}
@@ -44,6 +44,7 @@
     <text
       transform="translate (0 {7 * temperatureScale(20)})"
       fill={temperatureColor}
+      fill-opacity={0.8}
       text-anchor="middle"
       style="font-family: var(--font);
              font-size: 0.8rem;"
@@ -53,7 +54,7 @@
   </g>
   <g
     class="snow-legend"
-    transform="translate(0 {radius / 6})"
+    transform="translate(0 {radius / 8})"
   >
     <circle
       cx="0"
@@ -66,6 +67,7 @@
     <text
       transform="translate (0 {7 * temperatureScale(20)})"
       fill={temperatureColor}
+      fill-opacity={0.8}
       text-anchor="middle"
       style="font-family: var(--font);
              font-size: 0.8rem;"

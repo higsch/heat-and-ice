@@ -35,7 +35,7 @@
         style="color: {color};
                background-color: {backgroundColor};"
       >
-        {tick.year}
+        <span>{tick.year}</span>
       </div>
     </div>
   {/each}
@@ -61,5 +61,9 @@
     font-family: var(--font);
     font-size: 0.9rem;
     border-radius: 0.3rem;
+  }
+
+  .year-label-content span {
+    opacity: 0.8;
   }
 </style>

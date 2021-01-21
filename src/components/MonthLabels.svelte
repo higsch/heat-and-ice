@@ -42,6 +42,7 @@
       />
       <text
         fill={color}
+        fill-opacity={0.8}
         style="font-family: var(--font);
                font-size: 1rem;"
       >
