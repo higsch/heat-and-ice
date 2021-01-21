@@ -56,11 +56,11 @@
   .year-label-content {
     position: relative;
     left: -50%;
-    margin-top: -50%;
+    margin-top: -30%;
     padding: 0.2rem 0.3rem;
     font-family: var(--font);
-    font-size: 0.9rem;
-    border-radius: 0.3rem;
+    font-size: 0.7rem;
+    border-radius: 0.1rem;
   }
 
   .year-label-content span {
