@@ -14,15 +14,11 @@
   let width = 0;
   let height = 0;
 
-  let spiralData = [];
-  let temperatureData = [];
-  let snowData = [];
-
   $: minDim = Math.min(width, height);
 
   $: angleScale = scaleLinear()
     .domain(extent(data, (d) => d.day))
-    .range([0, 2 * Math.PI]);
+    .range([2 * Math.PI / 366, 2 * Math.PI]);
 
   $: spiralRadiusScale = scaleLinear()
     .domain(extent(data, (d) => d.yearDay))

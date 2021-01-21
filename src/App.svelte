@@ -7,7 +7,7 @@
 
   const dataPath = 'data/date_temperature_snow.csv';
   const parseDate = timeParse('%Y-%m-%d');
-  const firstYear = 1990;
+  const firstYear = 1980;
 
   let data = [];
 

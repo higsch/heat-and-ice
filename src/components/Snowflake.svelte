@@ -1,5 +1,5 @@
 <script>
-  import { getContext, onMount } from 'svelte';
+  import { getContext, onMount, onDestroy, afterUpdate } from 'svelte';
   import { tweened } from 'svelte/motion';
   import { cubicOut } from 'svelte/easing';
 
@@ -13,7 +13,7 @@
   export let parentWidth = 0;
   export let parentHeight = 0;
 
-  const { register, deregister } = getContext('canvas');
+  const { register, deregister, invalidate } = getContext('canvas');
   const fallingDuration = 1000;
   const delay = Math.random() * fallingDuration;
 
@@ -43,11 +43,15 @@
   }
 
   onMount(() => {
+    invalidate();
     register(draw);
     return () => {
       deregister(draw);
     };
   });
+
+	afterUpdate(invalidate);
+	onDestroy(invalidate);
 
   $: cartesianCoordinates = polarToCartesian(0, 0, (datum.innerRadius + datum.outerRadius) / 2, datum.angle - Math.PI / 2)
 
