@@ -44,7 +44,7 @@
         fill={color}
         fill-opacity={0.8}
         style="font-family: var(--font);
-               font-size: 1rem;"
+               font-size: 0.9rem;"
       >
         <textPath
           xlink:href="#month-path-{label.name}"
