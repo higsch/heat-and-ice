@@ -33,8 +33,7 @@
       <div
         class="year-label-content"
         style="color: {color};
-               background-color: {backgroundColor};
-               border: 1px solid {color};"
+               background-color: {backgroundColor};"
       >
         {tick.year}
       </div>
@@ -52,14 +51,13 @@
 
   .year-label {
     position: absolute;
-    border: 1px solid red;
   }
 
   .year-label-content {
     position: relative;
     left: -50%;
-    top: -50%;
-    padding: 0.1rem 0.2rem;
+    margin-top: -50%;
+    padding: 0.2rem 0.3rem;
     font-family: var(--font);
     font-size: 0.9rem;
     border-radius: 0.3rem;

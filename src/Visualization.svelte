@@ -73,7 +73,8 @@
         fillColor={temperatureColor}
       />
       <MonthLabels
-        radius={Math.min(minDim, spiralRadiusScale.range()[1] + minDim / 60)}
+        innerRadius={Math.min(minDim, spiralRadiusScale.range()[1] + minDim / 60)}
+        outerRadius={Math.min(minDim, spiralRadiusScale.range()[1] + minDim / 40)}
         angleScale={angleScale}
         color={temperatureColor}
       />
