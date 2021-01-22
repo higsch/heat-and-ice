@@ -9,10 +9,7 @@
   <h1>
     Heat & Ice in Stockholm
   </h1>
-  <h2>Weather history from 1980 through 2021.</h2>
-  <p>
-  
-  </p>
+  <h2>The weather spiral from 1980 until 2021.</h2>
 </div>
 
 <style>
@@ -36,13 +33,9 @@
 }
 
   h2 {
+    margin: 0 0 0 0.2rem;
     font-size: 1rem;
     font-weight: normal;
-    opacity: 0.8;
-  }
-
-  p {
-    font-size: 1rem;
     opacity: 0.8;
   }
 </style>

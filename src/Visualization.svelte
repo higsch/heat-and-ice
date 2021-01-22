@@ -12,11 +12,13 @@
   import Canvas from './components/Canvas.svelte';
   import Snowflake from './components/Snowflake.svelte';
   import YearLabels from './components/YearLabels.svelte';
+  import Explainers from './components/Explainers.svelte';
   import Credits from './components/Credits.svelte';
 
   export let data = [];
 
   const spiralOpacity = 0.3;
+  const fallingDuration = 2000;
 
   let width = 0;
   let height = 0;
@@ -67,41 +69,43 @@
     <Title
       color={temperatureColor}
     />
-    <Svg
-      width={width}
-      height={height}
-    >
-      <WobbleLine
-        data={spiralData}
-        fillColor={temperatureColor}
-        fillOpacity={spiralOpacity}
-      />
-      <WobbleLine
-        data={renderedData}
-        strokeColor="none"
-        fillColor={temperatureColor}
-      />
-      <SpiralEnds
-        points={[ ...spiralData.slice(-1), ...spiralData.slice(0, 1)]}
-        fillColor={temperatureColor}
-        fillOpacity={spiralOpacity * 1.5}
-      />
-      <MonthLabels
-        innerRadius={Math.min(minDim, spiralRadiusScale.range()[1] + minDim / 60)}
-        outerRadius={Math.min(minDim, spiralRadiusScale.range()[1] + minDim / 40)}
-        angleScale={angleScale}
-        color={temperatureColor}
-      />
-      <Legend
-        radius={minDim / 10}
-        temperatureScale={temperatureScale}
-        snowflakeRadiusScale={snowflakeRadiusScale}
-        temperatureColor={temperatureColor}
-        snowStrokeColor={temperatureColor}
-        snowStrokeWidth={minDim / 600}
-        snowStrokeOpacity={0.5}
-      />
-    </Svg>
+    {#if (spiralData.length)}
+      <Svg
+        width={width}
+        height={height}
+      >
+        <WobbleLine
+          data={spiralData}
+          fillColor={temperatureColor}
+          fillOpacity={spiralOpacity}
+        />
+        <WobbleLine
+          data={renderedData}
+          strokeColor="none"
+          fillColor={temperatureColor}
+        />
+        <SpiralEnds
+          points={[ ...spiralData.slice(-1), ...spiralData.slice(0, 1)]}
+          fillColor={temperatureColor}
+          fillOpacity={spiralOpacity * 1.5}
+        />
+        <MonthLabels
+          innerRadius={Math.min(minDim, spiralRadiusScale.range()[1] + minDim / 60)}
+          outerRadius={Math.min(minDim, spiralRadiusScale.range()[1] + minDim / 40)}
+          angleScale={angleScale}
+          color={temperatureColor}
+        />
+        <Legend
+          radius={minDim / 10}
+          temperatureScale={temperatureScale}
+          snowflakeRadiusScale={snowflakeRadiusScale}
+          temperatureColor={temperatureColor}
+          snowStrokeColor={temperatureColor}
+          snowStrokeWidth={minDim / 600}
+          snowStrokeOpacity={0.5}
+        />
+      </Svg>
+    {/if}
     <Canvas
       width={width}
       height={height}
@@ -115,6 +119,7 @@
           opacity={0.5}
           parentWidth={width}
           parentHeight={height}
+          fallingDuration={fallingDuration}
         />
       {/each}
     </Canvas>
@@ -126,6 +131,15 @@
       parentWidth={width}
       parentHeight={height}
     />
+    {#if (width > 600)}
+      <Explainers
+        angleScale={angleScale}
+        spiralRadiusScale={spiralRadiusScale}
+        foregroundColor={temperatureColor}
+        backgroundColor={backgroundColor}
+        delay={fallingDuration + 2000}
+      />
+    {/if}
     <Credits
       color={temperatureColor}
     />

@@ -12,9 +12,9 @@
   export let opacity = 0.3;
   export let parentWidth = 0;
   export let parentHeight = 0;
+  export let fallingDuration = 2000;
 
   const { register, deregister, invalidate } = getContext('canvas');
-  const fallingDuration = 7000;
   const delay = Math.random() * fallingDuration;
 
   const x = tweened(parentWidth * (Math.random() - 0.5), {

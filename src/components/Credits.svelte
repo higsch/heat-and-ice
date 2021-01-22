@@ -7,9 +7,6 @@
   style="color: {color};"
 >
   <p>
-    The data was collected at a weather station in central Stockholm (59.3417 | 18.0549).
-  </p>
-  <p>
     Created with Svelte and D3.
   </p>
   <p>
@@ -17,6 +14,9 @@
   </p>
   <p>
     If you like this viz, consider <a href="https://www.buymeacoffee.com/higsch" target="_blank">buying me a coffee</a>. Thanks!
+  </p>
+  <p>
+    The data was collected at a weather station in central Stockholm (59.3417 | 18.0549).
   </p>
 </div>
 
