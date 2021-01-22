@@ -15,7 +15,7 @@
     .curve(curve);
 </script>
 
-<g class="temperature-line">
+<g class="wobble-line">
   <path
     d={area(data)}
     stroke={strokeColor}
