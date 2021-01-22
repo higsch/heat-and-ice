@@ -19,7 +19,7 @@ export const data = [
   {
     date: new Date(1991, 5, 19),
     title: 'Midsummer',
-    description: 'Watch the temperature dropping in some years around midsummer. This is exactly what we feel almost every year. Apparently, in most years it is at least 10 degrees...'
+    description: 'Watch the temperature dropping in some years around midsummer. This is exactly what we feel almost every year. Apparently, in most years it is at least 10 degrees warm...'
   },
   {
     date: new Date(2000, 9, 30),

@@ -40,7 +40,7 @@
       class="explainer"
       style="left: {explainer.x}px;
              top: {explainer.y}px;"
-      transition:fade={{duration: 200, delay: delay + Math.random() * 1000}}
+      in:fade={{duration: 200, delay: delay + Math.random() * 1000}}
     >
       <div
         class="explainer-content"

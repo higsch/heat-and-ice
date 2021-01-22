@@ -21,7 +21,7 @@
     left: 2
   };
 
-  $: leftPos = `${x}px`;
+  $: leftPos = `${Math.max(margin.left + width / 2, Math.min(x, targetWidth - width / 2 - margin.right))}px`;
   $: topPos = `${Math.max(margin.top, Math.min(y, targetHeight - height - margin.bottom))}px`;
 </script>
 

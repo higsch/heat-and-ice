@@ -21,6 +21,12 @@
     font-family: var(--font);
   }
 
+  @media (min-width: 600px) {
+  .title {
+    width: 30%;
+  }
+}
+
   h1 {
     font-size: 2rem;
     font-weight: bold;
@@ -33,7 +39,9 @@
 }
 
   h2 {
+    width: 80%;
     margin: 0 0 0 0.2rem;
+    line-height: 1.3;
     font-size: 1rem;
     font-weight: normal;
     opacity: 0.8;
