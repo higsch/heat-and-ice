@@ -15,6 +15,9 @@
   <p>
     2021, Matthias Stah <a href="https://higsch.com" target="_blank">(higsch | data & design)</a>
   </p>
+  <p>
+    If you like this viz, consider <a href="https://www.buymeacoffee.com/higsch" target="_blank">buying me a coffee</a>. Thanks!
+  </p>
 </div>
 
 <style>

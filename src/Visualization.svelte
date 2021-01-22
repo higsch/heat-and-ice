@@ -28,9 +28,9 @@
     .domain(extent(data, (d) => d.yearDay))
     .range([minDim / 10, minDim / 2.2]);
 
-  $: temperatureScale = (temperature) => temperature > 10 ? minDim / data.length * 50 : 0;
+  $: temperatureScale = (temperature) => data.length > 0 && temperature > 10 ? minDim / data.length * 50 : 0;
 
-  $: snowflakeRadiusScale = (snow) => snow && snow > 0 ? minDim / data.length * 50 : 0;
+  $: snowflakeRadiusScale = (snow) => data.length > 0 && snow && snow > 0 ? minDim / data.length * 50 : 0;
 
   $: spiralData = data.map((d) => {
       return {
