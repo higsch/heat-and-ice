@@ -1,11 +1,12 @@
 <script>
-  import { scaleLinear, scaleSqrt, extent, max } from 'd3';
+  import { scaleLinear, extent } from 'd3';
 
   import { background as backgroundColor, temperature as temperatureColor } from './utils/colors';
 
   import Title from './components/Title.svelte';
   import Svg from './components/Svg.svelte';
   import WobbleLine from './components/WobbleLine.svelte';
+  import SpiralEnds from './components/SpiralEnds.svelte';
   import MonthLabels from './components/MonthLabels.svelte';
   import Legend from './components/Legend.svelte';
   import Canvas from './components/Canvas.svelte';
@@ -14,6 +15,8 @@
   import Credits from './components/Credits.svelte';
 
   export let data = [];
+
+  const spiralOpacity = 0.3;
 
   let width = 0;
   let height = 0;
@@ -71,12 +74,17 @@
       <WobbleLine
         data={spiralData}
         fillColor={temperatureColor}
-        fillOpacity={0.3}
+        fillOpacity={spiralOpacity}
       />
       <WobbleLine
         data={renderedData}
         strokeColor="none"
         fillColor={temperatureColor}
+      />
+      <SpiralEnds
+        points={[ ...spiralData.slice(-1), ...spiralData.slice(0, 1)]}
+        fillColor={temperatureColor}
+        fillOpacity={spiralOpacity * 1.5}
       />
       <MonthLabels
         innerRadius={Math.min(minDim, spiralRadiusScale.range()[1] + minDim / 60)}
