@@ -35,6 +35,13 @@ html, body {
   }
 }
 
+@media (min-width: 1950px) {
+  html,
+  body {
+    font-size: 20px;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;

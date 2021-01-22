@@ -88,10 +88,12 @@
           points={[ ...spiralData.slice(-1), ...spiralData.slice(0, 1)]}
           fillColor={temperatureColor}
           fillOpacity={spiralOpacity * 1.5}
+          parentMinDim={minDim}
         />
         <MonthLabels
           innerRadius={Math.min(minDim, spiralRadiusScale.range()[1] + minDim / 60)}
           outerRadius={Math.min(minDim, spiralRadiusScale.range()[1] + minDim / 40)}
+          veryInnerRadius={minDim / 10}
           angleScale={angleScale}
           color={temperatureColor}
         />
