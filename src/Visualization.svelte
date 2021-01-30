@@ -104,7 +104,7 @@
           temperatureColor={temperatureColor}
           snowStrokeColor={temperatureColor}
           snowStrokeWidth={minDim / 600}
-          snowStrokeOpacity={0.5}
+          snowStrokeOpacity={0.8}
         />
       </Svg>
     {/if}

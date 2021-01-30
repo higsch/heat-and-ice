@@ -6,7 +6,6 @@
 
   export let innerRadius = 0;
   export let outerRadius = 0;
-  export let veryInnerRadius = 100;
   export let angleScale;
   export let color = '#FFFFFF';
 

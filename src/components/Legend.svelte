@@ -34,7 +34,7 @@
 <g class="legend">
   <g
     class="temperature-legend"
-    transform="translate(0 {-radius / 3})"
+    transform="translate(0 {radius / 8})"
   >
     <path
       d={area(temperatureData)}
@@ -54,7 +54,7 @@
   </g>
   <g
     class="snow-legend"
-    transform="translate(0 {radius / 8})"
+    transform="translate(0 {-radius / 3})"
   >
     <circle
       cx="0"
