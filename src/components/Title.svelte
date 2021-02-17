@@ -22,10 +22,10 @@
   }
 
   @media (min-width: 600px) {
-  .title {
-    width: 30%;
+    .title {
+      width: 30%;
+    }
   }
-}
 
   h1 {
     font-size: 2rem;
@@ -33,10 +33,10 @@
   }
 
   @media (min-width: 1500px ) {
-	h1 {
-		font-size: 3rem;
-	}
-}
+    h1 {
+      font-size: 3rem;
+    }
+  }
 
   h2 {
     width: 80%;
